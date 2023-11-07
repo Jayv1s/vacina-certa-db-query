@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface IUsersVaccinesRepository extends JpaRepository<UsersVaccines, String> {
 
-    @Query("SELECT uv.* FROM Usuarios_vacinas uv WHERE uv.usuario_id = :usuario_id")
+    @Query("SELECT uv FROM UsersVaccines uv WHERE uv.user.id = :usuario_id")
     List<UsersVaccines> findByUsersId(@Param("usuario_id") String userId);
 }
