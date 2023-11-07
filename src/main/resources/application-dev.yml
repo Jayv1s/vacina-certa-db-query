@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 spring:
   config:
     activate:
@@ -5,7 +8,7 @@ spring:
 
   # datasource: é onde configura as conexões com a base de dados;
   datasource:
-    url: jdbc:h2:mem:test # connection string
+    url: jdbc:h2:tcp://localhost:9090/mem:test # connection string
     driverClassName: org.h2.Driver # driver do banco utilizado para conexão
     username: admin
     password: admin
