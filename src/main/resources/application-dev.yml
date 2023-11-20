@@ -35,5 +35,9 @@ spring:
       enabled: true
       path: /h2-console
 
+security:
+  jwt:
+    key: ${JWT_KEY}
+
 application:
   name: dev-profile

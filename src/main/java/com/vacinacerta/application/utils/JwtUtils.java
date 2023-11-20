@@ -1,19 +1,25 @@
-package com.vacinacerta.utils;
+package com.vacinacerta.application.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
+@Component
 public class JwtUtils {
+
+    @Value("${security.jwt.key}")
+    private String JWT_KEY;
 
     public Claims getJwtClaims(String token) {
         return Jwts.parser()
-                .setSigningKey("key")
-                .parseClaimsJwt(token)
+                .setSigningKey(JWT_KEY)
+                .parseClaimsJws(token)
                 .getBody();
     }
 
@@ -24,10 +30,6 @@ public class JwtUtils {
 
         Date dateNow = Date.from(instant);
 
-        if(claims.getExpiration().before(dateNow)) {
-            return false;
-        }
-
-        return true;
+        return !claims.getExpiration().before(dateNow);
     }
 }
