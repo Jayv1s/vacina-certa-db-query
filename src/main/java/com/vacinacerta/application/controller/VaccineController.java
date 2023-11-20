@@ -1,8 +1,8 @@
-package com.vacinacerta.controller;
+package com.vacinacerta.application.controller;
 
 import com.entities.db.Vaccine;
 import com.entities.dto.VaccineDTO;
-import com.vacinacerta.usecase.IUseCase;
+import com.vacinacerta.domain.usecase.IUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;

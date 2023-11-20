@@ -1,8 +1,8 @@
-package com.vacinacerta.usecase.usersvaccines;
+package com.vacinacerta.domain.usecase.usersvaccines;
 
 import com.entities.db.UsersVaccines;
-import com.vacinacerta.repository.IUsersVaccinesRepository;
-import com.vacinacerta.usecase.IUseCase;
+import com.vacinacerta.domain.adapters.IUsersVaccinesRepositoryAdapter;
+import com.vacinacerta.domain.usecase.IUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,7 +17,7 @@ import java.util.List;
 public class ListVaccinesByUserId implements IUseCase<String, List<UsersVaccines>> {
 
     @Autowired
-    private final IUsersVaccinesRepository usersVaccinesRepository;
+    private final IUsersVaccinesRepositoryAdapter usersVaccinesRepository;
 
     @Override
     public List<UsersVaccines> execute(String userId) {
