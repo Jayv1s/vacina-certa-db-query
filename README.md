@@ -17,3 +17,4 @@ Some reference values from local using H2:
 
 -DDB_URL=jdbc:h2:mem:test
 
+-DJWT_KEY= {jwt-key-used-on-signing}
