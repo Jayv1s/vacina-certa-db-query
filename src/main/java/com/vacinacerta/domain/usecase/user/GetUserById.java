@@ -1,8 +1,8 @@
-package com.vacinacerta.usecase.user;
+package com.vacinacerta.domain.usecase.user;
 
 import com.entities.db.User;
-import com.vacinacerta.repository.IUserRepository;
-import com.vacinacerta.usecase.IUseCase;
+import com.vacinacerta.domain.adapters.IUserRepositoryAdapter;
+import com.vacinacerta.domain.usecase.IUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class GetUserById implements IUseCase<String, User> {
 
     @Autowired
-    private final IUserRepository userRepository;
+    private final IUserRepositoryAdapter userRepository;
 
     @Override
     public User execute(String userId) {
