@@ -1,7 +1,7 @@
-package com.vacinacerta.domain.usecase.UserAcess;
+package com.vacinacerta.infraestructure;
 
 import com.entities.db.UserAccess;
-import com.vacinacerta.domain.repository.UserAccessRepository;
+import com.vacinacerta.domain.adapters.IUserAccessRepositoryAdapter;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -10,22 +10,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 @Service
 @AllArgsConstructor
-public class LoadUserAccess implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserAccessRepository userAccessRepositoryImpl;
+    private IUserAccessRepositoryAdapter userAccessRepositoryImpl;
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
 
         UserAccess userAccess = userAccessRepositoryImpl.findById(login).orElseThrow(() -> new UsernameNotFoundException("login não encontrado"));
 
-        String[] roles = new ArrayList<>(Arrays.asList(userAccess.getRoles().split(","))).toArray(new String[0]);
+        String[] roles = userAccess.getRoles().split(",");
 
         return User.builder()
                 .username(userAccess.getLogin())
