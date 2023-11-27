@@ -1,7 +1,7 @@
 package com.vacinacerta.domain.usecase.usersvaccines;
 
-import com.entities.db.UsersVaccines;
 import com.vacinacerta.domain.adapters.IUsersVaccinesRepositoryAdapter;
+import com.vacinacerta.domain.entities.db.UsersVaccines;
 import com.vacinacerta.domain.usecase.IUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

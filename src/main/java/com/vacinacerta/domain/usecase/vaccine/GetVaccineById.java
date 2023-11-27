@@ -1,9 +1,10 @@
 package com.vacinacerta.domain.usecase.vaccine;
 
-import com.entities.db.Vaccine;
-import com.entities.dto.VaccineDTO;
-import com.entities.mapper.VaccineMapper;
+
 import com.vacinacerta.domain.adapters.IVaccineRepositoryAdapter;
+import com.vacinacerta.domain.entities.db.Vaccine;
+import com.vacinacerta.domain.entities.dto.VaccineDTO;
+import com.vacinacerta.domain.entities.mapper.VaccineMapper;
 import com.vacinacerta.domain.usecase.IUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.vacinacerta.domain.adapters;
 
-import com.entities.db.UsersVaccines;
+import com.vacinacerta.domain.entities.db.UsersVaccines;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

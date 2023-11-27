@@ -1,7 +1,7 @@
 package com.vacinacerta.infraestructure;
 
-import com.entities.db.UserAccess;
 import com.vacinacerta.domain.adapters.IUserAccessRepositoryAdapter;
+import com.vacinacerta.domain.entities.db.UserAccess;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
