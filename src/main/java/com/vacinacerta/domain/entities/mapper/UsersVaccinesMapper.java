@@ -7,18 +7,18 @@ import com.vacinacerta.domain.entities.dto.UsersVaccinesDTO;
 public class UsersVaccinesMapper {
     public static UsersVaccinesDTO convertToUsersVaccinesDTO(UsersVaccines usersVaccines) {
         return UsersVaccinesDTO.builder()
-                .vaccine(usersVaccines.getVaccine())
-                .user(usersVaccines.getUser())
-                .vaccine(usersVaccines.getVaccine())
+                .vaccineDTO(VaccineMapper.convertToVaccineDTO(usersVaccines.getVaccine()))
+                .usersDTO(UserMapper.convertToUsersDTO(usersVaccines.getUser()))
+                .appliedAt(usersVaccines.getAppliedAt())
                 .id(usersVaccines.getId())
                 .build();
     }
 
     public static UsersVaccines convertToUsersVaccines(UsersVaccinesDTO usersVaccinesDTO) {
         return UsersVaccines.builder()
-                .vaccine(usersVaccinesDTO.getVaccine())
-                .user(usersVaccinesDTO.getUser())
-                .vaccine(usersVaccinesDTO.getVaccine())
+                .vaccine(VaccineMapper.convertToVaccineDB(usersVaccinesDTO.getVaccineDTO()))
+                .user(UserMapper.convertToUserDB(usersVaccinesDTO.getUsersDTO()))
+                .appliedAt(usersVaccinesDTO.getAppliedAt())
                 .id(usersVaccinesDTO.getId())
                 .build();
     }

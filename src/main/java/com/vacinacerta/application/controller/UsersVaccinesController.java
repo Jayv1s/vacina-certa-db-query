@@ -1,6 +1,7 @@
 package com.vacinacerta.application.controller;
 
 import com.vacinacerta.domain.entities.db.UsersVaccines;
+import com.vacinacerta.domain.entities.dto.UsersVaccinesDTO;
 import com.vacinacerta.domain.usecase.IUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,18 +17,18 @@ import java.util.List;
 @RestController()
 public class UsersVaccinesController {
 
-    private final IUseCase<String, List<UsersVaccines>> listAllVaccinesByUser;
+    private final IUseCase<String, List<UsersVaccinesDTO>> listAllVaccinesByUser;
 
     @Autowired
     private UsersVaccinesController(
             @Qualifier("ListVaccinesByUserId")
-            IUseCase<String, List<UsersVaccines>> listAllVaccinesByUser
+            IUseCase<String, List<UsersVaccinesDTO>> listAllVaccinesByUser
     ) {
         this.listAllVaccinesByUser = listAllVaccinesByUser;
     }
 
     @GetMapping("/users/{id}/vaccines")
-    private ResponseEntity<List<UsersVaccines>> listAllVaccinesFromUser(@PathVariable String id) {
+    private ResponseEntity<?> listAllVaccinesFromUser(@PathVariable String id) {
         var usersVaccines = listAllVaccinesByUser.execute(id);
 
         if(CollectionUtils.isEmpty(usersVaccines)) {

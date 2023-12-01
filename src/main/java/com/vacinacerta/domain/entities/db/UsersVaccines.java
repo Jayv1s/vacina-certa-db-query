@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Builder
@@ -22,12 +23,15 @@ public class UsersVaccines {
     public String id;
 
     //@Column(name = "usuario_id")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="usuario_id", nullable=false)
     private User user;
 
     //@Column(name = "vacina_id")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="vacina_id", nullable=false)
     private Vaccine vaccine;
+
+    @Column(name = "aplicado_em")
+    private Date appliedAt;
 }

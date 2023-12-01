@@ -14,5 +14,5 @@
 
 # [START gae_java11_helloworld_yaml]
 runtime: java11
-service: query
+
 # [END gae_java11_helloworld_yaml]

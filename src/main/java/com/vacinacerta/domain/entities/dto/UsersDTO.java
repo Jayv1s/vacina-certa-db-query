@@ -24,7 +24,6 @@ public class UsersDTO {
     private DocumentsType documentType;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private Set<UsersVaccines> vaccines;
     private String phone;
     private String nickname;
 }
